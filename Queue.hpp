@@ -1,15 +1,15 @@
 #pragma once
 #include "List.hpp"
 
-class Stack : List {
+class Queue : List {
   public:
-  Stack() {}
+  Queue() {}
 
-  void push(int value) {
-    insert(value, false);
+  void enqueue(int value) {
+    insert(value, true);
   }
 
-  int pop() {
+  int dequeue() {
     if(!last) return 0;
     int value = last->value;
     remove(last);

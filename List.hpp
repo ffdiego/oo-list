@@ -13,7 +13,7 @@ class Node {
 };
 
 class List {
-  private:
+  protected:
   int size = 0;
   Node* first = nullptr;
   Node* last = nullptr;
