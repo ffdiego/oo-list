@@ -10,10 +10,15 @@ class Node {
     this->next = nullptr;
     this->value = value;
   }
+
+  void operator+(Node* node) {
+    if(!this->next)
+      this->next = node;
+  }
 };
 
 class List {
-  protected:
+  private:
   int size = 0;
   Node* first = nullptr;
   Node* last = nullptr;
@@ -24,6 +29,9 @@ class List {
 
   public:
   List() {}
+
+  Node* getFirst() {return first;}
+  Node* getLast() {return last;}
   
   void insert(int value, bool atStart) {
     Node* node = createNode(value);

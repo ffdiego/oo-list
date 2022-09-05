@@ -1,17 +1,31 @@
 #pragma once
 #include "List.hpp"
 
-class Stack : List {
+class Stack {
+  private:
+  List *list;
+
   public:
-  Stack() {}
+  Stack() {
+    list = new List();
+  }
+  ~Stack() {
+    delete list;
+  }
 
   void push(int value) {
-    insert(value, false);
+    list->insert(value, false);
   }
 
   int pop() {
-    if(!last) return 0;
-    int value = last->value;
-    remove(last);
+    Node *node = list->getLast();
+    if(!node) return -1;
+    int value = node->value;
+    list->remove(node);
+    return value;
+  }
+
+  void print(){
+    list->print();
   }
 };
