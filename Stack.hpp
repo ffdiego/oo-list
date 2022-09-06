@@ -3,29 +3,25 @@
 
 class Stack {
   private:
-  List *list;
+  List list;
 
   public:
-  Stack() {
-    list = new List();
-  }
-  ~Stack() {
-    delete list;
-  }
+  Stack() {}
+  ~Stack() {}
 
   void push(int value) {
-    list->insert(value, false);
+    list.insert(value, false);
   }
 
   int pop() {
-    Node *node = list->getLast();
+    Node *node = list.getLast();
     if(!node) return -1;
     int value = node->value;
-    list->remove(node);
+    list.remove(node);
     return value;
   }
 
   void print(){
-    list->print();
+    list.print();
   }
 };
